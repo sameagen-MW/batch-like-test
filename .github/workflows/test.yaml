@@ -32,6 +32,9 @@ jobs:
           ./install.sh
           
           echo "PATH=$PATH:/usr/share/matlab/bin:/opt/matlab-batch" >> $GITHUB_ENV
+          
+      - name: Check directory contents
+        run: ls -l /home/runner/.matlab/R2023b
         
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
