@@ -21,6 +21,8 @@ jobs:
           sudo ./install.sh R2023a
           rm install.sh
           
+          sudo apt-get install --no-install-recommends --no-upgrade --yes wget unzip ca-certificates
+          
           wget https://www.mathworks.com/mpm/glnxa64/mpm
           chmod +x mpm
           ./mpm install --release=R2023b --release-status=Prerelease --products MATLAB Parallel_Computing_Toolbox
