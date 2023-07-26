@@ -19,7 +19,10 @@ jobs:
           wget https://www.mathworks.com/mpm/glnxa64/mpm
           chmod +x mpm
           ./mpm install --release=R2023b --release-status=Prerelease --products MATLAB Parallel_Computing_Toolbox
-          export PATH=$PATH:/usr/share/matlab/bin
+          wget https://ssd.mathworks.com/supportfiles/ci/matlab-batch/v0/install.sh
+          chmod +x install.sh
+          ./install.sh
+          echo "PATH=$PATH:/usr/share/matlab/bin" >> $GITHUB_ENV
         
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
