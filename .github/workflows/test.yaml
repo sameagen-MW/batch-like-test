@@ -1,0 +1,26 @@
+name: MATLAB Build
+on: [push]
+env:
+  MW_PARALLELSERVER_BATCHLIKE: 1
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Start display server
+        run: |
+          sudo apt-get install xvfb
+          Xvfb :99 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+        
+      - name: Setup MATLAB
+        run: |
+          wget https://www.mathworks.com/mpm/glnxa64/mpm
+          chmod +x mpm
+          ./mpm install --release=R2023b --release-status=Prerelease --products MATLAB Parallel_Computing_Toolbox
+        
+      - name: Run MATLAB command
+        uses: matlab-actions/run-command@v1
+        with:
+          command: |untests
