@@ -18,7 +18,7 @@ jobs:
         run: |
           wget https://ssd.mathworks.com/supportfiles/ci/matlab-deps/v0/install.sh
           chmod +x install.sh
-          ./install.sh R2023a
+          sudo ./install.sh R2023a
           rm install.sh
           
           wget https://www.mathworks.com/mpm/glnxa64/mpm
