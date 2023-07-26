@@ -2,6 +2,8 @@ name: MATLAB Build
 on: [push]
 env:
   MW_PARALLELSERVER_BATCHLIKE: 1
+  MW_CONNECTOR_CONNECTION_PROFILES: loopbackHttps
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,9 +34,6 @@ jobs:
           ./install.sh
           
           echo "PATH=$PATH:/usr/share/matlab/bin:/opt/matlab-batch" >> $GITHUB_ENV
-          
-      - name: Check directory contents
-        run: ls -l /home/runner/.matlab/R2023b
         
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
