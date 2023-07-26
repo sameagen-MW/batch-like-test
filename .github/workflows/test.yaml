@@ -22,7 +22,7 @@ jobs:
           wget https://ssd.mathworks.com/supportfiles/ci/matlab-batch/v0/install.sh
           chmod +x install.sh
           ./install.sh
-          echo "PATH=$PATH:/usr/share/matlab/bin" >> $GITHUB_ENV
+          echo "PATH=$PATH:/usr/share/matlab/bin:/opt/matlab-batch" >> $GITHUB_ENV
         
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
