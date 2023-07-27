@@ -38,4 +38,5 @@ jobs:
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
         with:
-          command: runtests()
+          command: feature('HasDisplay')
+          
