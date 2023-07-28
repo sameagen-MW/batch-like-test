@@ -38,5 +38,5 @@ jobs:
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
         with:
-          command: feature('HasDisplay') && feature('HasJava(swing)')
+          command: feature('HasDisplay') && usejava('swing')
           
