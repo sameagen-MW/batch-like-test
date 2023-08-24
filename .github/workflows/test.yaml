@@ -1,8 +1,5 @@
 name: MATLAB Build
 on: [push]
-env:
-  MW_PARALLELSERVER_BATCHLIKE: 1
-  MW_CONNECTOR_CONNECTION_PROFILES: loopbackHttps
 
 jobs:
   build:
