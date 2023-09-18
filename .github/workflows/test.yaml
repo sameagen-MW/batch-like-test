@@ -14,23 +14,9 @@ jobs:
           echo "DISPLAY=:99" >> $GITHUB_ENV
         
       - name: Setup MATLAB
-        run: |
-          wget https://ssd.mathworks.com/supportfiles/ci/matlab-deps/v0/install.sh
-          chmod +x install.sh
-          sudo ./install.sh R2023a
-          rm install.sh
-          
-          sudo apt-get install --no-install-recommends --no-upgrade --yes wget unzip ca-certificates
-          
-          wget https://www.mathworks.com/mpm/glnxa64/mpm
-          chmod +x mpm
-          ./mpm install --release=R2023b --release-status=Prerelease --products MATLAB Parallel_Computing_Toolbox
-          
-          wget https://ssd.mathworks.com/supportfiles/ci/matlab-batch/v0/install.sh
-          chmod +x install.sh
-          ./install.sh
-          
-          echo "PATH=$PATH:/usr/share/matlab/bin:/opt/matlab-batch" >> $GITHUB_ENV
+        uses: matlab-actions/setup-matlab@v1
+        with:
+          version: R2023b
         
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v1
