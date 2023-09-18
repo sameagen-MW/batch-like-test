@@ -22,14 +22,3 @@ jobs:
         uses: matlab-actions/run-command@v1
         with:
           command: feature('HasDisplay') && usejava('swing')
-
-      - name: Run MATLAB command
-        uses: matlab-actions/run-command@v1
-        with:
-          command: usejava('swing')
-
-      - name: Run MATLAB command
-        uses: matlab-actions/run-command@v1
-        with:
-          command: feature('HasDisplay')
-          
